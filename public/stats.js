@@ -1,3 +1,4 @@
+// This function calculate the total weight for the resistance workout
 function calculateTotalWeight(data) {
   const totals = [];
 
@@ -14,7 +15,7 @@ function calculateTotalWeight(data) {
 
   return totals;
 }
-
+// This function will populate the work chart with data in db.
 function populateChart(data) {
   const durations = data.map(({ totalDuration }) => totalDuration);
   const pounds = calculateTotalWeight(data);
@@ -32,7 +33,7 @@ function populateChart(data) {
       day: 'numeric',
     }).format(date);
   });
-
+  // This is an object displaying the data for the duration of the workout.
   let lineChart = new Chart(line, {
     type: 'line',
     data: {
@@ -60,7 +61,7 @@ function populateChart(data) {
       },
     },
   });
-
+  // This object is displaying the colour of the chart based on the data given.
   let barChart = new Chart(bar, {
     type: 'bar',
     data: {
