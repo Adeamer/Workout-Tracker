@@ -1,3 +1,4 @@
+// Function for displaying previous work out data.
 async function initWorkout() {
   const lastWorkout = await API.getLastWorkout();
   console.log("Last workout:", lastWorkout);
@@ -18,7 +19,7 @@ async function initWorkout() {
     renderNoWorkoutText()
   }
 }
-
+// This function will tally all the exercises and return the value in "tallied".
 function tallyExercises(exercises) {
   const tallied = exercises.reduce((acc, curr) => {
     if (curr.type === "resistance") {
@@ -32,7 +33,7 @@ function tallyExercises(exercises) {
   }, {});
   return tallied;
 }
-
+// This function will format the date and return it in a string in date model.
 function formatDate(date) {
   const options = {
     weekday: "long",
@@ -43,10 +44,10 @@ function formatDate(date) {
 
   return new Date(date).toLocaleDateString(options);
 }
-
+// This function renders the html to show the summary the workout.
 function renderWorkoutSummary(summary) {
   const container = document.querySelector(".workout-stats");
-
+  // The workoutKeyMap is an object that contains the total data for the workouts.
   const workoutKeyMap = {
     date: "Date",
     totalDuration: "Total Workout Duration",
@@ -56,7 +57,7 @@ function renderWorkoutSummary(summary) {
     totalReps: "Total Reps Performed",
     totalDistance: "Total Distance Covered"
   };
-
+  // This creates the html elements for the workoutKeyMap data to be appended to.
   Object.keys(summary).forEach(key => {
     const p = document.createElement("p");
     const strong = document.createElement("strong");
@@ -70,7 +71,7 @@ function renderWorkoutSummary(summary) {
     container.appendChild(p);
   });
 }
-
+// This function will display a message if the workout form is incorrectly filled out.
 function renderNoWorkoutText() {
   const container = document.querySelector(".workout-stats");
   const p = document.createElement("p");
