@@ -50,8 +50,9 @@ Here is a video of the deployed application;
 ![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/83004232/136741563-75b8d07e-dcd7-488f-a02a-1025894f75a8.gif)
 
 ## Questions
-Git-Hub: Adeamer  
-Link to my LinkedIn: LinkedIn:   
+Git-Hub: https://github.com/Adeamer/Workout-Tracker    
 For any further questions please contact me via email: Anthony.deamer@hotmail.com
+
+Heroku Application: https://week18-workout-tracker.herokuapp.com/
     
     
