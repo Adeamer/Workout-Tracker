@@ -19,7 +19,15 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connecting moogoose to the port
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+mongoose.connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/workout-tracker',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    }
+  );
 
 // Requiring routes
 require("./routes/apiRoutes")(app);
