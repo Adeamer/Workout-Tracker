@@ -5,12 +5,8 @@ module.exports = function(app) {
     // Get request for all workouts
     app.get("/api/workouts", (req, res) => {
         Workout.find().then(function(data) {
-            if(error) {
-                res.send(error);
-            } else{
                 console.log(data);
                 res.json(data);
-            }
         });
     });
 
@@ -19,6 +15,13 @@ module.exports = function(app) {
         console.log(req.body);
         Workout.create({}).then(function(data) {
                 res.json(data);
+        });
+    });
+
+    // Update a workout
+    app.put("/api/workouts/:id", (req, res) => {
+        Workout.findByIdAndUpdate(req.params.id, {$push: {exercises: req.body}}).then(function(data) {
+            res.json(data);
         });
     });
 }
