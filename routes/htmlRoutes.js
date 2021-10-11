@@ -6,4 +6,9 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/index.html"));
     });
 
+    // To send the user to the exercise html for adding a new workout or adding to an exsisting workout
+    app.get("/exercise", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/exercise.html"));
+    });
+
 };
