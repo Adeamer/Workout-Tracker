@@ -24,4 +24,11 @@ module.exports = function(app) {
             res.json(data);
         });
     });
+    
+    // Get a workout in a specific range
+    app.get("/api/workouts/range", (req, res) => {
+        Workout.find().then(function(data) {
+            res.json(data);
+        });
+    });
 }
