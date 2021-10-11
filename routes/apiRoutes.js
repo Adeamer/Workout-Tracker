@@ -18,7 +18,11 @@ module.exports = function(app) {
     app.post("api/workouts", (req,res) => {
         console.log(req.body);
         Workout.create({}).then(function(data) {
-            res.json(data);
+            if (error) {
+                res.send(error);
+            } else {
+                res.json(data);
+            }
         });
     });
 }
