@@ -15,14 +15,10 @@ module.exports = function(app) {
     });
 
     // Add a new workout
-    app.post("api/workouts", (req,res) => {
+    app.post("/api/workouts", (req,res) => {
         console.log(req.body);
         Workout.create({}).then(function(data) {
-            if (error) {
-                res.send(error);
-            } else {
                 res.json(data);
-            }
         });
     });
 }
